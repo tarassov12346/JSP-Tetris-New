@@ -16,21 +16,37 @@
     <script src="<c:url value="/static/jquery-3.6.0.min.js"/>"></script>
 </head>
 <body>
-<h1> <b> TETRIS </b> </h1>
-<div id="header"</div>
 
-  <p>Player: ${player}
-  Score: ${score}
-  <p>Best Player: ${bestplayer}
-  Best Score: ${bestscore}
-  <p>Speed: ${stepdown}
-   Game status: ${gameStatus}
+<h1 text align="center"> <b> TETRIS  at speed ${stepdown} </b> </h1>
+
+<div id="header"
+  <h1> </h1>
+  <h2>  Game status: ${gameStatus} </h2>
+</div>
+
+
+
 
 <div id="content"
 
       <div class="tetris-wrapper"</div>
 
-      <table>
+       <table align="center" style="background-color: #ffffff; border:1px black solid;" border="1" width="600">
+         <tr>
+         <td> <b> Player </b> </td>
+         <td> ${player}</td>
+         <td> <b> Score </b> </td>
+         <td> ${score}</td>
+         </tr>
+         <tr>
+         <td> <b> Best Player </b></td>
+         <td>  ${bestplayer}</td>
+         <td> <b> Best Score </b> </td>
+         <td>  ${bestscore}</td>
+         </tr>
+         </table>
+
+      <table align="center" style="background-color: #ffffff; border:1px black solid;">
       	<tr>
       	<td><img src=${cells0v0}></td>
         <td><img src=${cells0v1}></td>
@@ -315,14 +331,17 @@
      </table>
 </div>
 
-<button onclick="left()" >Left</button>
-<button onclick="rotate()" >Rotate</button>
-<button onclick="drop()" >Drop</button>
-<button onclick="newgame()" >NewGame</button>
-<button onclick="save()" >Save</button>
-<button onclick="restart()" >Restart</button>
+<div id="controls">
+   <button onclick="left()" >Left</button>
+   <button onclick="rotate()" >Rotate</button>
+   <button onclick="drop()" >Drop</button>
+   <button onclick="newgame()" >NewGame</button>
+   <button onclick="save()" >Save</button>
+   <button onclick="restart()" >Restart</button>
+   <button onclick="right()" >Right</button>
+</div>
 
-<button onclick="right()" >Right</button>
+
 
 <script>
 
@@ -408,7 +427,7 @@ function falldown() {
         });
     }
 
-  var myTimer =setInterval(falldown, 1000);
+  var myTimer =setInterval(falldown, 500);
   if(!${isGameOn}) clearInterval(myTimer);
 
 
