@@ -11,8 +11,8 @@ public class Dao {
     private final String password = "mine";
 
     List<Player> playerList=new ArrayList<>();
-    static String bestPlayer = "To be shown";
-    static int bestScore;
+    static public String bestPlayer = "To be shown";
+    static public int bestScore;
 
     public void recordScore(Player player) {
         String recordScoreQuery = "INSERT INTO player1(name, score) VALUES(?, ?)";

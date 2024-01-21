@@ -7,7 +7,7 @@ public class State {
     public final boolean isRunning;
     private final Player player;
     public Dao dao= new Dao();
-    static final int[] stepDownArray ={1};
+    static public final int[] stepDownArray ={1};
 
     public State(Stage stage, boolean isRunning, Player player) {
         this.stage = Objects.requireNonNull(stage);
