@@ -24,6 +24,19 @@ public class Tetromino {
         this.shape = shape;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tetromino tetromino = (Tetromino) o;
+        return Arrays.equals(shape, tetromino.shape);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(shape);
+    }
+
     public static Tetromino getTetromino(Character tetromino) {
         return tetrominoMap.get(tetromino);
     }

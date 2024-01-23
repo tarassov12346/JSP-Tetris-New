@@ -2,6 +2,7 @@ package jsp.tetris;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Player {
@@ -14,6 +15,19 @@ public class Player {
     public Player(String playerName, int playerScore) {
         this.playerName = playerName;
         this.playerScore = playerScore;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return playerScore == player.playerScore && playerName.equals(player.playerName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerName, playerScore);
     }
 
     public String getPlayerName() {
