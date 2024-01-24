@@ -1,4 +1,4 @@
-package test;
+package module;
 
 import jsp.tetris.Player;
 import jsp.tetris.Stage;
@@ -7,6 +7,8 @@ import jsp.tetris.Tetromino;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.apache.log4j.Logger;
+
 
 import java.util.stream.IntStream;
 
@@ -15,6 +17,10 @@ import static jsp.tetris.Stage.WIDTH;
 
 @Test()
 public class ModuleTest {
+
+
+    private static final Logger log = Logger.getLogger(ModuleTest.class);
+
     @DataProvider
     public Object[][] data() {
         final char[][] cS = new char[HEIGHT][WIDTH];
@@ -31,6 +37,8 @@ public class ModuleTest {
 
     @Test(dataProvider = "data")
     public void doFullRowsCollapseTest(State state) {
+
+        log.info("test begin!!!!!");
         State newState=state.newTetramino().orElse(state);
         Tetromino tetromino=newState.stage.getTetramino();
         int tetrominoX = newState.stage.getTetraminoX();

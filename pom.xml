@@ -5,15 +5,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.javarush</groupId>
-    <artifactId>tic-tac-toe</artifactId>
+    <artifactId>tetris</artifactId>
     <version>1.0</version>
-    <name>tic-tac-toe</name>
+    <name>tetris</name>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>18</maven.compiler.target>
         <maven.compiler.source>18</maven.compiler.source>
+
+
+
     </properties>
 
     <dependencies>
@@ -35,6 +38,13 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
@@ -46,4 +56,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
