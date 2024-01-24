@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Rows" verbose="1">
+<suite name="Suite1" verbose="1">
 
-    <test name="Test">
+    <test name="Unit Tests">
         <classes>
-            <class name="module.ModuleTest">
+            <class name="unit_tests.UnitTest">
                 <methods>
-                    <include name="doFullRowsCollapseTest"/>
+                    <include name="doFullRowsCollapseAndScoreIsUpdated"/>
 
                 </methods>
             </class>
