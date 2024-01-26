@@ -8,7 +8,11 @@
             <class name="unit_tests.UnitTest">
                 <methods>
                     <include name="doFullRowsCollapseAndScoreIsUpdated"/>
-
+                    <include name="doesTetraminoMoveRight"/>
+                    <include name="doesTetraminoMoveRightStopAtBorder"/>
+                    <include name="doesTetraminoMoveLeft"/>
+                    <include name="doesTetraminoMoveLeftStopAtBorder"/>
+                    <include name="doesTetraminoMoveDown"/>
                 </methods>
             </class>
         </classes>

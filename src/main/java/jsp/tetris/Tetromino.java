@@ -3,7 +3,7 @@ package jsp.tetris;
 import java.util.*;
 
 public class Tetromino {
-    private static final Map<Character, Tetromino> tetrominoMap;
+    public static final Map<Character, Tetromino> tetrominoMap;
 
     static {
         tetrominoMap = new HashMap<>();
