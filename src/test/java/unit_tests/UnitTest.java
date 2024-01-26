@@ -33,12 +33,18 @@ public class UnitTest {
         log.info("UnitTests start");
     }
 
+    @BeforeMethod
+    public void doBeforeEachTestMethod() {
+        log.info("Test Method  is called");
+    }
+
     @Test(dataProvider = "data")
     public void doFullRowsCollapseAndScoreIsUpdated(State state) {
         log.info("doFullRowsCollapseAndScoreIsUpdated Test start");
+        log.info("filled rows number is "+countFilledCells(state));
         State newState = state.newTetramino().orElse(state);
         Tetromino tetromino = newState.stage.getTetramino();
-        log.info("new tetromino is called with the shape type "+getShapeTypeByTetromino(tetromino));
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(tetromino));
         int tetrominoX = newState.stage.getTetraminoX();
         int tetrominoY = newState.stage.getTetraminoY();
         int collapsedLayersCount = newState.stage.collapsedLayersCount;
@@ -50,7 +56,9 @@ public class UnitTest {
 
     @Test(dataProvider = "data")
     public void doesTetraminoMoveRight(State state) {
+        log.info("doesTetraminoMoveRight Test start");
         State stateWithNewTetramino = state.newTetramino().orElse(state);
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(stateWithNewTetramino.stage.getTetramino()));
         int tetrominoX = stateWithNewTetramino.stage.getTetraminoX();
         int tetrominoY = stateWithNewTetramino.stage.getTetraminoY();
         State newState = stateWithNewTetramino.tryMoveRight().orElse(stateWithNewTetramino);
@@ -58,17 +66,19 @@ public class UnitTest {
         int collapsedLayersCount = newState.stage.collapsedLayersCount;
         State expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, tetrominoX + 1, tetrominoY), true, new Player("Tester", collapsedLayersCount * 10));
         log.info("Tetramino initial position x=" + tetrominoX + " y=" + tetrominoY);
-        log.info("Tetramino moveRight new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
+        log.info("moveRight is called");
+        log.info("Tetramino after moveRight new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
         Assert.assertEquals(newState, expectedState);
     }
 
     @Test(dataProvider = "data")
     public void doesTetraminoMoveRightStopAtBorder(State state) {
+        log.info("doesTetraminoMoveRightStopAtBorder Test start");
         moveCount = 0;
         State stateWithNewTetramino = state.newTetramino().orElse(state);
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(stateWithNewTetramino.stage.getTetramino()));
         int tetrominoX = stateWithNewTetramino.stage.getTetraminoX();
         int tetrominoY = stateWithNewTetramino.stage.getTetraminoY();
-
         State newState = moveFarRight(stateWithNewTetramino);
         State expectedState;
         Tetromino tetromino = newState.stage.getTetramino();
@@ -77,16 +87,18 @@ public class UnitTest {
             case "O", "J", "I" -> expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, 10, tetrominoY), true, new Player("Tester", collapsedLayersCount * 10));
             default -> expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, 9, tetrominoY), true, new Player("Tester", collapsedLayersCount * 10));
         }
-
         log.info("Tetramino initial position x=" + tetrominoX + " y=" + tetrominoY);
-        log.info("Tetramino moveFarRight new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
+        log.info("moveRight 13 times is performed");
+        log.info("Tetramino moveRight 13 times new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
         log.info("Tetramino type " + getShapeTypeByTetromino(newState.stage.getTetramino()));
         Assert.assertEquals(newState, expectedState);
     }
 
     @Test(dataProvider = "data")
     public void doesTetraminoMoveLeft(State state) {
+        log.info("doesTetraminoMoveLeft Test start");
         State stateWithNewTetramino = state.newTetramino().orElse(state);
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(stateWithNewTetramino.stage.getTetramino()));
         int tetrominoX = stateWithNewTetramino.stage.getTetraminoX();
         int tetrominoY = stateWithNewTetramino.stage.getTetraminoY();
         State newState = stateWithNewTetramino.tryMoveLeft().orElse(stateWithNewTetramino);
@@ -94,14 +106,17 @@ public class UnitTest {
         int collapsedLayersCount = newState.stage.collapsedLayersCount;
         State expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, tetrominoX - 1, tetrominoY), true, new Player("Tester", collapsedLayersCount * 10));
         log.info("Tetramino initial position x=" + stateWithNewTetramino.stage.getTetraminoX() + " y=" + stateWithNewTetramino.stage.getTetraminoY());
-        log.info("Tetramino moveLeft new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
+        log.info("moveLeft is called");
+        log.info("Tetramino after moveLeft new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
         Assert.assertEquals(newState, expectedState);
     }
 
     @Test(dataProvider = "data")
     public void doesTetraminoMoveLeftStopAtBorder(State state) {
+        log.info("doesTetraminoMoveLeftStopAtBorder Test start");
         moveCount = 0;
         State stateWithNewTetramino = state.newTetramino().orElse(state);
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(stateWithNewTetramino.stage.getTetramino()));
         int tetrominoX = stateWithNewTetramino.stage.getTetraminoX();
         int tetrominoY = stateWithNewTetramino.stage.getTetraminoY();
         State expectedState;
@@ -114,14 +129,17 @@ public class UnitTest {
             default -> expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, 0, tetrominoY), true, new Player("Tester", collapsedLayersCount * 10));
         }
         log.info("Tetramino initial position x=" + tetrominoX + " y=" + tetrominoY);
-        log.info("Tetramino moveFarLeft new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
+        log.info("moveLeft 13 times is performed");
+        log.info("Tetramino moveLeft 13 times new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
         log.info("Tetramino type " + getShapeTypeByTetromino(newState.stage.getTetramino()));
         Assert.assertEquals(newState, expectedState);
     }
 
     @Test(dataProvider = "data")
     public void doesTetraminoMoveDown(State state) {
+        log.info("doesTetraminoMoveDown Test start");
         State stateWithNewTetramino = state.newTetramino().orElse(state);
+        log.info("new tetramino is called with the shape type "+getShapeTypeByTetromino(stateWithNewTetramino.stage.getTetramino()));
         int tetrominoX = stateWithNewTetramino.stage.getTetraminoX();
         int tetrominoY = stateWithNewTetramino.stage.getTetraminoY();
         State newState = stateWithNewTetramino.tryMoveDown(1).orElse(stateWithNewTetramino);
@@ -129,7 +147,8 @@ public class UnitTest {
         int collapsedLayersCount = newState.stage.collapsedLayersCount;
         State expectedState = new State(makeStageWithOnlyLeftUnfilledRows(collapsedLayersCount).setTetraminoToStage(tetromino, tetrominoX, tetrominoY + 1), true, new Player("Tester", collapsedLayersCount * 10));
         log.info("Tetramino initial position x=" + stateWithNewTetramino.stage.getTetraminoX() + " y=" + stateWithNewTetramino.stage.getTetraminoY());
-        log.info("Tetramino moveDown step1 new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
+        log.info("moveDown is called");
+        log.info("Tetramino after moveDown with step 1 new position x=" + newState.stage.getTetraminoX() + " y=" + newState.stage.getTetraminoY());
         Assert.assertEquals(newState, expectedState);
     }
 
@@ -193,7 +212,8 @@ public class UnitTest {
 
     private State moveFarRight(State state) {
         state = state.tryMoveRight().orElse(state);
-        log.info("x=" + state.stage.getTetraminoX());
+        log.info("move tetramino 1 step right");
+        log.info("tetramino position x=" + state.stage.getTetraminoX() + " y="+state.stage.getTetraminoY());
         moveCount++;
         if (moveCount > 12) return state;
         return moveFarRight(state);
@@ -201,7 +221,8 @@ public class UnitTest {
 
     private State moveFarLeft(State state) {
         state = state.tryMoveLeft().orElse(state);
-        log.info("x=" + state.stage.getTetraminoX());
+        log.info("move tetramino 1 step left");
+        log.info("tetramino position x=" + state.stage.getTetraminoX() + " y="+state.stage.getTetraminoY());
         moveCount++;
         if (moveCount > 12) return state;
         return moveFarLeft(state);
@@ -214,6 +235,25 @@ public class UnitTest {
             }
         }
         return null;
+    }
+
+    private int countFilledCells(State state){
+        char [][] cells= state.stage.getCells();
+        int count=0;
+        for (int i = 0; i < HEIGHT; i++) {
+            for (int j = 0; j < WIDTH; j++) {
+                if (cells[i][j]=='0') {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return HEIGHT-count;
+    }
+
+    @AfterMethod
+    public void doAfterEachTestMethod() {
+        log.info("Test Method  is finished");
     }
 
 
