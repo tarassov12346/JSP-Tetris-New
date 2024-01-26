@@ -29,7 +29,7 @@ public class Tetromino {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tetromino tetromino = (Tetromino) o;
-        return Arrays.equals(shape, tetromino.shape);
+        return Arrays.deepEquals(shape, tetromino.shape);
     }
 
     @Override

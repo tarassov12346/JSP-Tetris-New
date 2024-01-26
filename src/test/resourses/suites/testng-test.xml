@@ -13,6 +13,8 @@
                     <include name="doesTetraminoMoveLeft"/>
                     <include name="doesTetraminoMoveLeftStopAtBorder"/>
                     <include name="doesTetraminoMoveDown"/>
+                    <include name="doesTetraminoMoveDownStopAtUnfilledLayers"/>
+                    <include name="doesTetraminoRotate"/>
                 </methods>
             </class>
         </classes>
