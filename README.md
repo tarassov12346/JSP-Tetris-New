@@ -1,5 +1,5 @@
 Java Tetris Game
-![](C:\JavaProjects\jsp-tetris-new\tetris.png)
+![](tetris.png)
 ************************************************************************************************************************
  run 'tomcat9' to play the game
 
