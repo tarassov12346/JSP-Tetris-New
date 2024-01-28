@@ -9,12 +9,12 @@ public class Stage {
     public static final int HEIGHT = 20;
     private static final StringBuilder pause = new StringBuilder("go!");
     private final char[][] cells;
-    private final Tetromino tetramino;
+    private final Tetramino tetramino;
     private final int tetraminoX;
     private final int tetraminoY;
     public int collapsedLayersCount;
 
-    public Stage(char[][] cells, Tetromino tetramino, int tetraminoX, int tetraminoY, int collapsedLayersCount) {
+    public Stage(char[][] cells, Tetramino tetramino, int tetraminoX, int tetraminoY, int collapsedLayersCount) {
         this.cells = cells;
         this.tetramino = tetramino;
         this.tetraminoX = tetraminoX;
@@ -37,7 +37,7 @@ public class Stage {
         return result;
     }
 
-    public Tetromino getTetramino() {
+    public Tetramino getTetramino() {
         return tetramino;
     }
 
@@ -52,11 +52,11 @@ public class Stage {
     public static Stage createEmptyStage() {
         final char[][] c = new char[HEIGHT][WIDTH];
         IntStream.range(0, HEIGHT).forEach(y -> IntStream.range(0, WIDTH).forEach(x -> c[y][x] = '0'));
-        return new Stage(c, Tetromino.getTetromino('0'), 0, 0, 0);
+        return new Stage(c, Tetramino.getTetramino('0'), 0, 0, 0);
     }
 
     public static Stage recreateStage(char[][] c, int collapsedLayersCount) {
-        return new Stage(c, Tetromino.getTetromino('0'), 0, 0, collapsedLayersCount);
+        return new Stage(c, Tetramino.getTetramino('0'), 0, 0, collapsedLayersCount);
     }
 
     public char[][] drawTetraminoOnCells() {
@@ -74,7 +74,7 @@ public class Stage {
         return new Stage(drawTetraminoOnCells(), tetramino, tetraminoX, tetraminoY, collapsedLayersCount);
     }
 
-    public Stage setTetraminoToStage(Tetromino tetramino, int x, int y) {
+    public Stage setTetraminoToStage(Tetramino tetramino, int x, int y) {
         return new Stage(cells, tetramino, x, y, collapsedLayersCount);
     }
 
@@ -114,7 +114,7 @@ public class Stage {
     }
 
     public Stage rotateCcw() {
-        return new Stage(cells, new Tetromino(rotateMatrix(tetramino.getShape())), tetraminoX, tetraminoY, collapsedLayersCount);
+        return new Stage(cells, new Tetramino(rotateMatrix(tetramino.getShape())), tetraminoX, tetraminoY, collapsedLayersCount);
     }
 
     public Stage collapseFullLayers() {

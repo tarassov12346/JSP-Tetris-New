@@ -43,7 +43,7 @@ public class State {
     }
 
     public Optional<State> newTetramino() {
-        final Tetromino t = Tetromino.getRandomTetromino();
+        final Tetramino t = Tetramino.getRandomTetramino();
         final State newState = addTetraminoToState()
                 .collapseFullLayers()
                 .updatePlayerScore()
@@ -53,7 +53,7 @@ public class State {
     }
 
     public Optional<State> restartWithNewTetramino() {
-        final Tetromino t = Tetromino.getRandomTetromino();
+        final Tetramino t = Tetramino.getRandomTetramino();
         final State newState = addTetraminoToState()
 
                 .setTetraminoToState(t, (Stage.WIDTH - t.getShape().length) / 2);
@@ -97,7 +97,7 @@ public class State {
         stage.unSetPause();
     }
 
-    private State setTetraminoToState(Tetromino tetramino, int x) {
+    private State setTetraminoToState(Tetramino tetramino, int x) {
         return new State(stage.setTetraminoToStage(tetramino, x, 0), isRunning, player);
     }
 
