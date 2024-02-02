@@ -1,8 +1,5 @@
 package jsp.tetris;
 
-import jsp.tetris.Player;
-import jsp.tetris.State;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

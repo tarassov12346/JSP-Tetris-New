@@ -405,7 +405,7 @@ function newgame() {
  function save() {
  $.ajax({
              success: function () {
-                 window.location='save';
+                 window.location='/save';
              }
          });
  }
@@ -413,7 +413,7 @@ function newgame() {
  function restart() {
   $.ajax({
               success: function () {
-                  window.location='restart';
+                  window.location='/restart';
               }
           });
   }

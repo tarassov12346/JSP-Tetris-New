@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="All tests">
+
+    <test name="All Tests">
+        <classes>
+            <class name="unit_tests.UnitTest">
+                <methods>
+                    <include name="doFullRowsCollapseAndScoreIsUpdated"/>
+                    <include name="doesTetraminoMoveRight"/>
+                    <include name="doesTetraminoMoveRightStopAtBorder"/>
+                    <include name="doesTetraminoMoveLeft"/>
+                    <include name="doesTetraminoMoveLeftStopAtBorder"/>
+                    <include name="doesTetraminoMoveDown"/>
+                    <include name="doesTetraminoMoveDownStopAtUnfilledLayers"/>
+                    <include name="doesTetraminoRotate"/>
+                </methods>
+            </class>
+            <class name="api_tests.APITest"/>
+        </classes>
+    </test>
+</suite>

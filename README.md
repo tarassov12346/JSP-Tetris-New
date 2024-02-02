@@ -1,7 +1,7 @@
 Java Tetris Game
 ![](tetris.png)
 ************************************************************************************************************************
- run 'tomcat9' to play the game
+ run 'tomcat9TetrisGameLaunch' to play the game
 
 the player's name is selected randomly, the player's score is calculated as each filled row collapses
  - the game status is shown and changes as the game is saved or is over
@@ -20,9 +20,16 @@ the player's name is selected randomly, the player's score is calculated as each
 
 Java Tetris Tests
 
-There are 16 tests which provide for the game units' functionality
- - run maven commands to start unit tests:
- - mvn -Dlog4j.configuration=file:C:\JavaProjects\jsp-tetris-new\src\test\resourses\log4j.properties -DsuiteXml=testng-test.xml clean test
+There are 16 tests which provide for the game units' functionality:
+ - run the following maven command to start unit tests:
+   mvn -Dlog4j.configuration=file:C:\JavaProjects\jsp-tetris-new\src\test\resources\log4j.properties -DsuiteXml=testng-unit-tests.xml clean test
  - each test method is logged for debugging pls find the unit tests log in \target\logs\quality-automation.log
 
+Pls find 8 api tests which make sure that each defined client request receives successful response from the server:
+- run tomcat9TetrisServerLaunch
+- run the following maven command to start api tests:
+  mvn -Dlog4j.configuration=file:C:\JavaProjects\jsp-tetris-new\src\test\resources\log4j.properties -DsuiteXml=testng-api-tests.xml clean test
+- the test method is logged for debugging pls find the api tests log in \target\logs\quality-automation.log
 
+By default run all tests:
+mvn -Dlog4j.configuration=file:C:\JavaProjects\jsp-tetris-new\src\test\resources\log4j.properties clean test
