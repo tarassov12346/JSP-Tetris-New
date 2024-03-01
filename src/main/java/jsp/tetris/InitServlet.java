@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "InitServlet", value = "/start")
+@WebServlet(name = "InitServlet", value = "/start111")
 public class InitServlet extends HttpServlet {
     static HttpSession currentSession;
     static Player player;

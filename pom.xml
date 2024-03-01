@@ -15,15 +15,65 @@
         <maven.compiler.target>18</maven.compiler.target>
         <maven.compiler.source>18</maven.compiler.source>
         <suiteXml>testng-all-tests.xml</suiteXml>
+
+        <spring.version>3.1.0.RELEASE</spring.version>
+        <cglib.version>2.2.2</cglib.version>
     </properties>
 
     <dependencies>
+
+        <!-- Spring core & mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- CGLib for @Configuration -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${cglib.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <scope>provided</scope>
+        </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -82,8 +132,56 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- CGLib for @Configuration -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib-nodep</artifactId>
+            <version>${cglib.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
+
 
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>springsource-milestones</id>
+            <name>SpringSource Milestones Proxy</name>
+            <url>https://oss.sonatype.org/content/repositories/springsource-milestones</url>
+        </repository>
+    </repositories>
 
     <build>
         <pluginManagement>
